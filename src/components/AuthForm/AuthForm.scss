@@ -1,0 +1,19 @@
+/* src/LoginForm.css */
+.login-form-container {
+  padding: 2.5rem 1.5rem;
+  .gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    border: 2px solid transparent;
+    background: linear-gradient(129.59deg, #969696 0%, #343434 98.18%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+  }
+}
