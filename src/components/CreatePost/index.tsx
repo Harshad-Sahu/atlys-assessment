@@ -49,11 +49,13 @@ const CreatePost: React.FC = () => {
       <div
         className="relative p-4 flex items-center bg-post-input-bg rounded-lg mb-4"
         onClick={handleDivClick}>
-        <img
-          src={MessageIcon}
-          alt="Post your message"
-          className="w-12 h-12 mr-4"
-        />
+        <div className="relative bg-post-bg w-12 h-12 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+          <img
+            src={MessageIcon}
+            alt="Post your message"
+            className="relative w-[18px] h-[18px]"
+          />{" "}
+        </div>
         <textarea
           ref={textareaRef}
           rows={1}
@@ -70,7 +72,7 @@ const CreatePost: React.FC = () => {
         </span>
       )}
       <div className="relative w-full right-0 flex justify-end">
-        <Button buttonLabel="Post" handleClick={createPost} buttonWidth={28} />
+        <Button buttonLabel="Post" handleClick={createPost} buttonWidth={7} />
       </div>
     </section>
   );

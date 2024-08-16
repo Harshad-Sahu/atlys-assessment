@@ -43,3 +43,17 @@ export type SignUpFormData = {
   username: string;
   password: string;
 };
+
+export type UserPostType = {
+  id: number;
+  userName: string;
+  userProfileThumbnail: string;
+  postTime: string;
+  edited: boolean;
+  commentCount: number;
+  postContent: string;
+};
+
+export type UserPostProps = {
+  userPostInfo: UserPostType;
+};

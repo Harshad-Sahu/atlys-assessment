@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import * as CONSTANTS from "./contants";
+import * as CONSTANTS from "../../utilities/constant";
 import LoginForm from "../LoginForm";
 import SignUpForm from "../SignUpForm";
 import "./AuthForm.scss";
