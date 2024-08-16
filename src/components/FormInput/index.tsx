@@ -1,27 +1,7 @@
 import React from "react";
-import {
-  Controller,
-  Control,
-  FieldValues,
-  FieldError,
-  Path,
-  PathValue,
-} from "react-hook-form";
+import { Controller, FieldValues, Path } from "react-hook-form";
 import { EyeIcon, EyeOffIcon } from "../../assets/index";
-
-type FormInputProps<T extends FieldValues> = {
-  name: Path<T>;
-  control: Control<T>;
-  placeholder: string;
-  type?: string;
-  errors: Partial<Record<Path<T>, FieldError | undefined>>;
-  defaultValue?: PathValue<T, Path<T>>;
-  showPasswordToggle?: boolean;
-  showPassword?: boolean;
-  onPasswordToggle?: () => void;
-  label: string;
-  forgotPasswordText?: string;
-};
+import { FormInputProps } from "../../utilities/types";
 
 const FormInput = <T extends FieldValues>({
   name,

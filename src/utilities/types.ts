@@ -1,3 +1,25 @@
+import {
+  Control,
+  FieldValues,
+  FieldError,
+  Path,
+  PathValue,
+} from "react-hook-form";
+
+export type FormInputProps<T extends FieldValues> = {
+  name: Path<T>;
+  control: Control<T>;
+  placeholder: string;
+  type?: string;
+  errors: Partial<Record<Path<T>, FieldError | undefined>>;
+  defaultValue?: PathValue<T, Path<T>>;
+  showPasswordToggle?: boolean;
+  showPassword?: boolean;
+  onPasswordToggle?: () => void;
+  label: string;
+  forgotPasswordText?: string;
+};
+
 export type LoginSignUpScreenType = {
   "main-sub-heading": string;
   "main-heading": string;
@@ -8,6 +30,7 @@ export type LoginSignUpScreenType = {
 export type ButtonProps = {
   buttonLabel: string;
   handleClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  buttonWidth?: string | number;
 };
 
 export type LoginFormData = {
