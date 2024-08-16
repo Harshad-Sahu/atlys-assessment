@@ -3,13 +3,17 @@ import { UserPostProps } from "../../utilities/types";
 import { emojiCodes } from "../../utilities/constant";
 import { CommentIcon, MenuDot } from "../../assets";
 
-const UserPost: React.FC<UserPostProps> = ({ userPostInfo }) => {
+const UserPost: React.FC<UserPostProps> = ({ userPostInfo, userActions }) => {
   const getTwemojiUrl = (code: string) =>
     `https://twemoji.maxcdn.com/v/13.0.1/72x72/${code}.png`;
 
   const getRandomEmojiUrl = (): string => {
     const randomIndex = Math.floor(Math.random() * emojiCodes.length);
     return getTwemojiUrl(emojiCodes[randomIndex]);
+  };
+
+  const handleActions = () => {
+    userActions && userActions();
   };
 
   return (
@@ -22,13 +26,17 @@ const UserPost: React.FC<UserPostProps> = ({ userPostInfo }) => {
             className="relative w-12 h-12 mr-4 rounded-full"
           />
           <div className="relative">
-            <p className="relative text-custom-label-color text-custom-16 font-medium leading-lh-120 group-hover:underline">
+            <p
+              className="relative text-custom-label-color text-custom-16 font-medium leading-lh-120 group-hover:underline"
+              onClick={handleActions}>
               {userPostInfo.userName}
             </p>
             <p className="relative text-custom-placeholder text-custom-14 font-medium leading-lh-120">{`${userPostInfo.postTime} ago`}</p>
           </div>
         </div>
-        <div className="relative w-5 h-5 cursor-pointer flex items-center justify-center flex-shrink-0 rounded-full">
+        <div
+          className="relative w-5 h-5 cursor-pointer flex items-center justify-center flex-shrink-0 rounded-full"
+          onClick={handleActions}>
           <img src={MenuDot} alt="Menu" className="relative w-4 h-1" />
         </div>
       </div>
@@ -47,7 +55,9 @@ const UserPost: React.FC<UserPostProps> = ({ userPostInfo }) => {
         </div>
       </div>
 
-      <div className="relative flex items-center cursor-pointer group">
+      <div
+        className="relative flex items-center cursor-pointer group"
+        onClick={handleActions}>
         <div className="relative mr-2 h-5 w-5 flex items-center justify-center flex-shrink-0">
           <img
             src={CommentIcon}

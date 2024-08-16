@@ -56,4 +56,14 @@ export type UserPostType = {
 
 export type UserPostProps = {
   userPostInfo: UserPostType;
+  userActions?: () => void;
+};
+
+export type AuthFormProp = {
+  postsScreen?: boolean;
+  onClose?: () => void;
+};
+
+export type CreatePostProps = {
+  handlePost?: () => void;
 };

@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import { MessageIcon } from "../../assets";
 import Button from "../Button";
+import { CreatePostProps } from "../../utilities/types";
 
-const CreatePost: React.FC = () => {
+const CreatePost: React.FC<CreatePostProps> = ({ handlePost }) => {
   const [postData, setPostData] = useState("");
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const [textareaHeight, setTextareaHeight] = useState(0);
@@ -39,7 +40,9 @@ const CreatePost: React.FC = () => {
     }
   };
 
-  const createPost = () => {};
+  const createPost = () => {
+    handlePost && handlePost();
+  };
 
   return (
     <section className="relative py-6 px-5 border-2 border-custom-border bg-post-bg rounded-lg">
