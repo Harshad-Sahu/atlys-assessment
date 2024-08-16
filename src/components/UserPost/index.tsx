@@ -3,6 +3,7 @@ import { UserPostProps } from "../../utilities/types";
 import { emojiCodes } from "../../utilities/constant";
 import { CommentIcon, MenuDot } from "../../assets";
 import { getRandomEmojiUrl } from "../../utilities/helperFunctions";
+import EmojiImage from "../EmojiImage";
 
 const UserPost: React.FC<UserPostProps> = ({ userPostInfo, userActions }) => {
   const handleActions = () => {
@@ -37,13 +38,10 @@ const UserPost: React.FC<UserPostProps> = ({ userPostInfo, userActions }) => {
       </div>
 
       <div className="p-4 flex items-start bg-post-input-bg rounded-lg mb-4 mt-5">
-        <div className="bg-post-bg w-12 h-12 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-          <img
-            src={getRandomEmojiUrl(emojiCodes)}
-            alt="Emoji"
-            className="w-[18px] h-[18px]"
-          />
-        </div>
+        <EmojiImage
+          imageIcon={getRandomEmojiUrl(emojiCodes)}
+          altImageText="Emoji"
+        />
 
         <div className="flex-1 text-custom-placeholder text-custom-16 font-md-400 leading-lh-150">
           {userPostInfo.postContent}

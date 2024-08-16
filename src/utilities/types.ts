@@ -67,3 +67,8 @@ export type AuthFormProp = {
 export type CreatePostProps = {
   handlePost?: () => void;
 };
+
+export type EmojiImageProps = {
+  imageIcon: string | React.ReactNode;
+  altImageText: string;
+};

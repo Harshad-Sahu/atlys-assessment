@@ -4,6 +4,7 @@ import Button from "../Button";
 import { CreatePostProps } from "../../utilities/types";
 import { adjustTextareaHeight } from "../../utilities/helperFunctions";
 import { CHARACTER_LIMIT } from "../../utilities/constant";
+import EmojiImage from "../EmojiImage";
 
 const CreatePost: React.FC<CreatePostProps> = ({ handlePost }) => {
   const [postData, setPostData] = useState("");
@@ -46,13 +47,8 @@ const CreatePost: React.FC<CreatePostProps> = ({ handlePost }) => {
       <div
         className="p-4 flex items-center bg-post-input-bg rounded-lg cursor-pointer"
         onClick={handleTextareaFocus}>
-        <div className="bg-post-bg w-12 h-12 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-          <img
-            src={MessageIcon}
-            alt="Post your message"
-            className="w-[18px] h-[18px]"
-          />
-        </div>
+        <EmojiImage imageIcon={MessageIcon} altImageText="Add a post" />
+
         <textarea
           ref={textareaRef}
           rows={1}
