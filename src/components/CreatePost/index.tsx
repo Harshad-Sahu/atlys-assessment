@@ -2,62 +2,56 @@ import React, { useState, useRef, useEffect } from "react";
 import { MessageIcon } from "../../assets";
 import Button from "../Button";
 import { CreatePostProps } from "../../utilities/types";
+import { adjustTextareaHeight } from "../../utilities/helperFunctions";
+import { CHARACTER_LIMIT } from "../../utilities/constant";
 
 const CreatePost: React.FC<CreatePostProps> = ({ handlePost }) => {
   const [postData, setPostData] = useState("");
   const textareaRef = useRef<HTMLTextAreaElement>(null);
-  const [textareaHeight, setTextareaHeight] = useState(0);
   const [characterCount, setCharacterCount] = useState(0);
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setPostData(event.target.value);
-    setCharacterCount(event.target.value.length);
-
-    // Ensure the textarea height adjusts dynamically
-    if (textareaRef.current) {
-      textareaRef.current.style.height = "auto";
-      textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
-      setTextareaHeight(textareaRef.current.scrollHeight);
-    }
-  };
-
   useEffect(() => {
-    // Set the initial textarea height and character count
-    if (textareaRef.current) {
-      textareaRef.current.style.height = "auto";
-      textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
-      setTextareaHeight(textareaRef.current.scrollHeight);
-      setCharacterCount(textareaRef.current.value.length);
-    }
+    // Adjust textarea height on mount
+    adjustTextareaHeight(textareaRef.current);
   }, []);
 
-  // Implement character count limit (adjust as needed)
-  const isCharacterCountExceeded = characterCount > 300;
+  useEffect(() => {
+    // Adjust textarea height on content change
+    adjustTextareaHeight(textareaRef.current);
+  }, [postData]);
 
-  const handleDivClick = () => {
-    if (textareaRef.current) {
-      textareaRef.current.focus();
+  const handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const value = event.target.value;
+    if (value.length <= CHARACTER_LIMIT) {
+      setPostData(value);
     }
+    setCharacterCount(value.length);
   };
 
-  const createPost = () => {
-    handlePost && handlePost();
+  const handleTextareaFocus = () => {
+    textareaRef.current?.focus();
   };
+
+  const handlePostClick = () => {
+    handlePost?.();
+  };
+
+  const isCharacterCountExceeded = characterCount > CHARACTER_LIMIT;
 
   return (
     <section className="relative py-6 px-5 border-2 border-custom-border bg-post-bg rounded-lg">
-      <div className="relative text-custom-18 text-custom-label-color font-medium leading-lh-120 mb-4">
+      <div className="text-custom-18 text-custom-label-color font-medium leading-lh-120 mb-4">
         Create Post
       </div>
       <div
-        className="relative p-4 flex items-center bg-post-input-bg rounded-lg mb-4"
-        onClick={handleDivClick}>
-        <div className="relative bg-post-bg w-12 h-12 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+        className="p-4 flex items-center bg-post-input-bg rounded-lg cursor-pointer"
+        onClick={handleTextareaFocus}>
+        <div className="bg-post-bg w-12 h-12 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
           <img
             src={MessageIcon}
             alt="Post your message"
-            className="relative w-[18px] h-[18px]"
-          />{" "}
+            className="w-[18px] h-[18px]"
+          />
         </div>
         <textarea
           ref={textareaRef}
@@ -66,16 +60,19 @@ const CreatePost: React.FC<CreatePostProps> = ({ handlePost }) => {
           onChange={handleInputChange}
           className="w-full bg-transparent text-white placeholder-custom-placeholder border-0 outline-none resize-none"
           placeholder="How are you feeling today?"
-          style={{ maxHeight: `${textareaHeight}px` }}
         />
       </div>
       {isCharacterCountExceeded && (
-        <span className="text-red-500 mb-2 text-sm">
+        <span className="text-red-500 mt-1 mb-2 text-sm">
           Character limit exceeded.
         </span>
       )}
-      <div className="relative w-full right-0 flex justify-end">
-        <Button buttonLabel="Post" handleClick={createPost} buttonWidth={7} />
+      <div className="w-full flex justify-end mt-4">
+        <Button
+          buttonLabel="Post"
+          handleClick={handlePostClick}
+          buttonWidth={7}
+        />
       </div>
     </section>
   );

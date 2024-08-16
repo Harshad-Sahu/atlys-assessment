@@ -1,5 +1,7 @@
 import { LoginSignUpScreenType, UserPostType } from "./types";
 
+export const CHARACTER_LIMIT = 400;
+
 export const LoginScreenValues: LoginSignUpScreenType = {
   "main-sub-heading": "Welcome Back",
   "main-heading": "Log into your account",
