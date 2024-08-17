@@ -10,6 +10,8 @@ module.exports = {
         "custom-btn-blue": "#4A96FF",
         "custom-placeholder": "#7F8084",
         "custom-border": "#35373b",
+        "post-bg": "#27292D",
+        "post-input-bg": "#191920",
       },
       fontSize: {
         "custom-14": "0.875rem",

@@ -1,19 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
+import * as CONSTANT from "../../utilities/constant";
+import UserGreeting from "../../components/UserGreeting";
+import CreatePost from "../../components/CreatePost";
+import UserPost from "../../components/UserPost";
+import AuthForm from "../../components/AuthForm";
 
-const Posts = () => {
+const Posts: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleOpenPopup = () => setIsOpen(true);
+  const handleClosePopup = () => setIsOpen(false);
+
   return (
     <main className="relative m-[4.5rem] flex flex-col items-center">
       <div className="relative max-w-[44rem]">
-        <section className="relative mb-10">
-          <div className="relative text-[1.75rem] leading-lh-120 font-medium text-custom-label-color">
-            Hello Jane
-          </div>
-          <div className="mt-3 max-w-[36.25rem] text-custon-16 text-custom-placeholder leading-lh-150 text-md-400">
-            How are you doing today? Would you like to share something with the
-            community 🤗
-          </div>
-        </section>
+        <UserGreeting />
+        <CreatePost handlePost={handleOpenPopup} />
+        {CONSTANT.DummyPosts.map((userPostInfo) => {
+          return (
+            <UserPost
+              key={userPostInfo.id}
+              userPostInfo={userPostInfo}
+              userActions={handleOpenPopup}
+            />
+          );
+        })}
       </div>
+
+      {isOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
+          <AuthForm postsScreen onClose={handleClosePopup} />
+        </div>
+      )}
     </main>
   );
 };
