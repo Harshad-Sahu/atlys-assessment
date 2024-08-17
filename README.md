@@ -6,7 +6,7 @@ This project was created as part of the Atlys recruitment process. The objective
 
 The provided document and specifications were incomplete and somewhat vague. Based on my understanding, here is how the application flow is designed:
 
-- The login page serves as the landing page. New users must register before proceeding.
+- The login page serves as the landing page, and new users must register before proceeding. Currently, new user data is stored in localStorage, so if you use incognito mode or a new browser, previously registered users may not be available. As specified, no back-end API is required, so this is the logic I have implemented.
 - After a successful login or signup, users are redirected to the **/posts** route.
 - According to the task requirements, **_"There is no need to implement the logic for creating new posts, comments, or likes."_** Therefore, I have focused on creating the UI only. For every user action, an **_Auth Popup_** appears.
 
