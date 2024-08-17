@@ -29,15 +29,30 @@ export const loginSchema = yup
     usernameOrEmail: yup
       .string()
       .required("Email or Username is required")
-      .test(
-        "valid-username-or-email",
-        "Invalid username or email format",
-        (value) => {
-          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          const usernameRegex = /^[a-zA-Z0-9._]+$/;
-          return emailRegex.test(value) || usernameRegex.test(value);
+      .test("valid-username-or-email", function (value) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const usernameRegex = /^[a-zA-Z0-9._]+$/;
+
+        if (!value) return false;
+
+        // Check if value is a valid email
+        if (emailRegex.test(value)) return true;
+
+        // Check if value is a valid username
+        if (usernameRegex.test(value)) return true;
+
+        // If not valid, determine the specific error message
+        if (usernameRegex.test(value) === false) {
+          return this.createError({
+            message:
+              "Username can only contain letters, numbers, dots, and underscores. Spaces are not allowed.",
+          });
         }
-      ),
+
+        return this.createError({
+          message: "Invalid username or email format.",
+        });
+      }),
     password: yup.string().required("Password is required"),
   })
   .required();

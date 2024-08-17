@@ -19,7 +19,7 @@ const AuthForm: React.FC<AuthFormProp> = ({ postsScreen = false, onClose }) => {
   };
 
   const handleClosePopup = () => {
-    onClose && onClose();
+    onClose?.();
   };
 
   return (
@@ -54,7 +54,11 @@ const AuthForm: React.FC<AuthFormProp> = ({ postsScreen = false, onClose }) => {
         </p>
       </div>
 
-      {showLogin ? <LoginForm /> : <SignUpForm />}
+      {showLogin ? (
+        <LoginForm handleClosePopup={handleClosePopup} />
+      ) : (
+        <SignUpForm handleClosePopup={handleClosePopup} />
+      )}
 
       <p className="registration-text relative mt-3 text-custom-placeholder text-custom-14 font-medium leading-lh-120 z-10">
         {showLogin

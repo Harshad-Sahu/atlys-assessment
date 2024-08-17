@@ -72,3 +72,13 @@ export type EmojiImageProps = {
   imageIcon: string | React.ReactNode;
   altImageText: string;
 };
+
+export type ToastProps = {
+  isError?: boolean;
+  message: string;
+  onClose: () => void;
+};
+
+export type PropsForm = {
+  handleClosePopup: () => void;
+};
