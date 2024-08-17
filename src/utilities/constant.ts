@@ -3,17 +3,17 @@ import { LoginSignUpScreenType, UserPostType } from "./types";
 export const CHARACTER_LIMIT = 400;
 
 export const LoginScreenValues: LoginSignUpScreenType = {
-  "main-sub-heading": "Welcome Back",
-  "main-heading": "Log into your account",
-  "footer-text": "Not registered yet?",
-  "footer-redirect-text": "Register →",
+  mainSubHeading: "Welcome Back",
+  mainHeading: "Log into your account",
+  footerText: "Not registered yet?",
+  footerRedirectText: "Register →",
 };
 
 export const SignupScreenValues: LoginSignUpScreenType = {
-  "main-sub-heading": "SIGN UP",
-  "main-heading": "Create an account to continue",
-  "footer-text": "Already have an account?",
-  "footer-redirect-text": "Login →",
+  mainSubHeading: "SIGN UP",
+  mainHeading: "Create an account to continue",
+  footerText: "Already have an account?",
+  footerRedirectText: "Login →",
 };
 
 export const DummyPosts: UserPostType[] = [

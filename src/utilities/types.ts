@@ -21,10 +21,10 @@ export type FormInputProps<T extends FieldValues> = {
 };
 
 export type LoginSignUpScreenType = {
-  "main-sub-heading": string;
-  "main-heading": string;
-  "footer-text": string;
-  "footer-redirect-text": string;
+  mainSubHeading: string;
+  mainHeading: string;
+  footerText: string;
+  footerRedirectText: string;
 };
 
 export type ButtonProps = {

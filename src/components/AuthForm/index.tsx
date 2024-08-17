@@ -44,13 +44,13 @@ const AuthForm: React.FC<AuthFormProp> = ({ postsScreen = false, onClose }) => {
       <div className="header-wrapper mb-11 flex items-center justify-center flex-col">
         <p className="heading-top text-custon-font-gray text-custom-14 font-medium leading-lh-120 mb-2 uppercase">
           {showLogin
-            ? CONSTANTS.LoginScreenValues["main-sub-heading"]
-            : CONSTANTS.SignupScreenValues["main-sub-heading"]}
+            ? CONSTANTS.LoginScreenValues.mainSubHeading
+            : CONSTANTS.SignupScreenValues.mainSubHeading}
         </p>
         <p className="heading-bottom text-white text-custom-18 font-semibold leading-lh-120">
           {showLogin
-            ? CONSTANTS.LoginScreenValues["main-heading"]
-            : CONSTANTS.SignupScreenValues["main-heading"]}
+            ? CONSTANTS.LoginScreenValues.mainHeading
+            : CONSTANTS.SignupScreenValues.mainHeading}
         </p>
       </div>
 
@@ -62,15 +62,15 @@ const AuthForm: React.FC<AuthFormProp> = ({ postsScreen = false, onClose }) => {
 
       <p className="registration-text relative mt-3 text-custom-placeholder text-custom-14 font-medium leading-lh-120 z-10">
         {showLogin
-          ? CONSTANTS.LoginScreenValues["footer-text"]
-          : CONSTANTS.SignupScreenValues["footer-text"]}
+          ? CONSTANTS.LoginScreenValues.footerText
+          : CONSTANTS.SignupScreenValues.footerText}
         &nbsp;
         <span
           className="register-link text-custom-label-color cursor-pointer"
           onClick={handleScreenChange}>
           {showLogin
-            ? CONSTANTS.LoginScreenValues["footer-redirect-text"]
-            : CONSTANTS.SignupScreenValues["footer-redirect-text"]}
+            ? CONSTANTS.LoginScreenValues.footerRedirectText
+            : CONSTANTS.SignupScreenValues.footerRedirectText}
         </span>
       </p>
     </div>
