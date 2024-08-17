@@ -1,7 +1,55 @@
-<<<<<<< HEAD
-# Getting Started with Create React App
+# Atlys Assessment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was created as part of the Atlys recruitment process. The objective is to build a mini frontend application that includes an authentication flow based on the provided design.
+
+## Application Flow
+
+The provided document and specifications were incomplete and somewhat vague. Based on my understanding, here is how the application flow is designed:
+
+- The login page serves as the landing page. New users must register before proceeding.
+- After a successful login or signup, users are redirected to the **/posts** route.
+- According to the task requirements, **_"There is no need to implement the logic for creating new posts, comments, or likes."_** Therefore, I have focused on creating the UI only. For every user action, an **_Auth Popup_** appears.
+
+## Run Locally
+
+Ensure that Node.js is installed. If not, download and install it from [Node.js](https://nodejs.org/en).
+
+Clone the project
+
+```bash
+  git clone https://github.com/Harshad-Sahu/atlys-assessment
+```
+
+Go to the project directory
+
+```bash
+  cd atlys-assessment
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm start
+```
+
+## Technical Specifications
+
+Below are the versions of software used to create this application:
+
+**If you encounter issues running the code as per the instructions, try using the versions listed below:**
+
+- Node.js: `v20.13.1`
+- NPM: `10.5.2`
+- React: `^18.3.1`
+- TypeScript: `^4.9.5`
+
+All other dependency versions can be found in the `package.json` file.
 
 ## Available Scripts
 
@@ -39,13 +87,3 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-=======
-# atlys-assessment
-Assessment app for Atlys interview process
->>>>>>> origin/master
