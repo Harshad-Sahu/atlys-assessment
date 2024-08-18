@@ -12,7 +12,7 @@ const Posts: React.FC = () => {
   const handleClosePopup = () => setIsOpen(false);
 
   return (
-    <main className="relative m-[4.5rem] flex flex-col items-center">
+    <main className="relative m-5 sm:m-8 lg:m-[4.5rem] flex flex-col items-center">
       <div className="relative max-w-[44rem]">
         <UserGreeting />
         <CreatePost handlePost={handleOpenPopup} />
