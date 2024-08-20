@@ -31,7 +31,9 @@ const FormInput = <T extends FieldValues>({
         htmlFor={uniqueId}>
         {label}
         {forgotPasswordText && (
-          <button className="text-custom-label-color text-custom-14 font-medium leading-lh-120 hover:text-custom-btn-blue">
+          <button
+            type="button"
+            className="text-custom-label-color text-custom-14 font-medium leading-lh-120 hover:text-custom-btn-blue">
             {forgotPasswordText}
           </button>
         )}
